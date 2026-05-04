@@ -1,0 +1,21 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build Project",
+      "type": "shell",
+      "command": "gcc",
+      "args": [
+        "src/main.c",
+        "-o", "main",
+        "-IC:/raylib/src",
+        "-LC:/raylib/src",
+        "-lraylib",
+        "-lopengl32",
+        "-lgdi32",
+        "-lwinmm"
+      ],
+      "group": "build"
+    }
+  ]
+}
