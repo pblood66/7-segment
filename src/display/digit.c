@@ -27,7 +27,7 @@ void drawDigit(int digit, Vector2 center) {
     };
 
     
-    uint8_t mask = SEGMENTS[digit];
+    uint8_t mask = SEGMENTS[digit % 10];
     for (int i = 0; i < 7; i++) {
         if (mask & (1 << i)) {
             Vector2 pos = {
