@@ -7,13 +7,17 @@
       "command": "gcc",
       "args": [
         "src/main.c",
+        "src/display/digit.c",
+        "src/display/segment.c",
         "-o", "main",
         "-IC:/raylib/src",
         "-LC:/raylib/src",
         "-lraylib",
         "-lopengl32",
         "-lgdi32",
-        "-lwinmm"
+        "-lwinmm",
+        "-Wall",
+        "-Wextra"
       ],
       "group": "build"
     }
