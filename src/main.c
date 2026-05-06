@@ -3,6 +3,7 @@
 #include <time.h>
 
 #include "display/digit.h"
+#include "clock/clock.h"
 
 #define WIDTH 900
 #define HEIGHT 600
@@ -11,12 +12,6 @@
 
 int main()
 {
-
-    time_t cur_time = time(NULL);
-
-    char *c_time = ctime(&cur_time);
-    printf("%s", c_time);
-
     InitWindow(WIDTH, HEIGHT, "7 Segment Clock");
     double last_time = GetTime();
 
@@ -33,7 +28,7 @@ int main()
         BeginDrawing();
         ClearBackground(BLACK);
         Vector2 center = {WIDTH / 2, HEIGHT / 2};
-        drawDigit(i, center, .5);
+        drawDigit(getMinutes(), center, .5);
         EndDrawing();
     }
 
