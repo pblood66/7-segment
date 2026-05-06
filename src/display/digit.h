@@ -6,4 +6,4 @@ typedef struct {
     bool horizontal;
 } SegmentLayout;
 
-void drawDigit(int digit, Vector2 center);
+void drawDigit(int digit, Vector2 center, float scale);

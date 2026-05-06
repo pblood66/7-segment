@@ -33,7 +33,7 @@ int main()
         BeginDrawing();
         ClearBackground(BLACK);
         Vector2 center = {WIDTH / 2, HEIGHT / 2};
-        drawDigit(i % 10, center);
+        drawDigit(i, center, .5);
         EndDrawing();
     }
 

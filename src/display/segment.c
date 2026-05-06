@@ -1,10 +1,10 @@
 #include "segment.h"
 
-void drawSegment(Vector2 center, bool horizontal)
+void drawSegment(Vector2 center, bool horizontal, float scale)
 {
     int count = 6;
-    int width = SEGMENT_WIDTH / 2;
-    int height = SEGMENT_HEIGHT / 2;
+    int width = SEGMENT_WIDTH / 2 * scale;
+    int height = SEGMENT_HEIGHT / 2 * scale;
 
     Vector2 a, b, c, d, e, f;
 

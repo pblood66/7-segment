@@ -2,7 +2,7 @@
 #include "digit.h"
 #include <stdint.h>
 
-void drawDigit(int digit, Vector2 center) {
+void drawDigit(int digit, Vector2 center, float scale) {
     static const uint8_t SEGMENTS[10] = {
         0b1110111, // 0
         0b0100100, // 1
@@ -31,10 +31,10 @@ void drawDigit(int digit, Vector2 center) {
     for (int i = 0; i < 7; i++) {
         if (mask & (1 << i)) {
             Vector2 pos = {
-                center.x + LAYOUT[i].offset.x,
-                center.y + LAYOUT[i].offset.y,
+                center.x + LAYOUT[i].offset.x * scale,
+                center.y + LAYOUT[i].offset.y * scale,
             };
-            drawSegment(pos, LAYOUT[i].horizontal);
+            drawSegment(pos, LAYOUT[i].horizontal, scale);
         }
     }
 }
