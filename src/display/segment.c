@@ -1,6 +1,6 @@
 #include "segment.h"
 
-void drawSegment(Vector2 center, bool horizontal, float scale)
+void drawSegment(Vector2 center, bool horizontal, float scale, struct Color color)
 {
     int count = 6;
     int width = SEGMENT_WIDTH / 2 * scale;
@@ -28,5 +28,5 @@ void drawSegment(Vector2 center, bool horizontal, float scale)
     }
     Vector2 points[] = {a, b, c, d, e, f};
 
-    DrawTriangleStrip(points, count, RED);
+    DrawTriangleStrip(points, count, color);
 }

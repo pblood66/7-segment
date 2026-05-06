@@ -2,7 +2,8 @@
 #include "digit.h"
 #include <stdint.h>
 
-void drawDigit(int digit, Vector2 center, float scale) {
+void drawDigit(int digit, Vector2 center, float scale)
+{
     static const uint8_t SEGMENTS[10] = {
         0b1110111, // 0
         0b0100100, // 1
@@ -12,29 +13,36 @@ void drawDigit(int digit, Vector2 center, float scale) {
         0b1101011, // 5
         0b1111011, // 6
         0b0100101, // 7
-        0b1111111, // 8 
+        0b1111111, // 8
         0b1101111  // 9
     };
 
     static const SegmentLayout LAYOUT[7] = {
-        {{0, -SEGMENT_WIDTH}, true},  // a
+        {{0, -SEGMENT_WIDTH}, true},                       // a
         {{-SEGMENT_WIDTH / 2, -SEGMENT_WIDTH / 2}, false}, // b
-        {{SEGMENT_WIDTH / 2, -SEGMENT_WIDTH / 2}, false}, // c
-        {{0, 0}, true},  // d
-        {{-SEGMENT_WIDTH / 2, SEGMENT_WIDTH / 2}, false}, // e
-        {{SEGMENT_WIDTH / 2, SEGMENT_WIDTH / 2}, false}, // f
-        {{0, SEGMENT_WIDTH}, true},  // g
+        {{SEGMENT_WIDTH / 2, -SEGMENT_WIDTH / 2}, false},  // c
+        {{0, 0}, true},                                    // d
+        {{-SEGMENT_WIDTH / 2, SEGMENT_WIDTH / 2}, false},  // e
+        {{SEGMENT_WIDTH / 2, SEGMENT_WIDTH / 2}, false},   // f
+        {{0, SEGMENT_WIDTH}, true},                        // g
     };
 
-    
     uint8_t mask = SEGMENTS[digit % 10];
-    for (int i = 0; i < 7; i++) {
-        if (mask & (1 << i)) {
-            Vector2 pos = {
-                center.x + LAYOUT[i].offset.x * scale,
-                center.y + LAYOUT[i].offset.y * scale,
-            };
-            drawSegment(pos, LAYOUT[i].horizontal, scale);
+    struct Color off = {222, 205, 205, 10};
+
+    for (int i = 0; i < 7; i++)
+    {
+        Vector2 pos = {
+            center.x + LAYOUT[i].offset.x * scale,
+            center.y + LAYOUT[i].offset.y * scale,
+        };
+        if (mask & (1 << i))
+        {
+            drawSegment(pos, LAYOUT[i].horizontal, scale, RED);
+        }
+        else
+        {
+            drawSegment(pos, LAYOUT[i].horizontal, scale, off);
         }
     }
 }

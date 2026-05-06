@@ -10,6 +10,7 @@
         "src/display/digit.c",
         "src/display/segment.c",
         "src/clock/clock.c",
+        "src/display/display.c",
         "-o", "main",
         "-IC:/raylib/src",
         "-LC:/raylib/src",

@@ -4,4 +4,4 @@
 #define SEGMENT_WIDTH 200
 #define SEGMENT_HEIGHT 50
 
-void drawSegment(Vector2 center, bool horizontal, float scale);
+void drawSegment(Vector2 center, bool horizontal, float scale, struct Color color);
