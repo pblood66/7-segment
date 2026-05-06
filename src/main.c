@@ -2,33 +2,31 @@
 #include <raylib.h>
 #include <time.h>
 
-#include "display/digit.h"
+#include "display/display.h"
 #include "clock/clock.h"
 
-#define WIDTH 900
-#define HEIGHT 600
-
-
+#define WIDTH 1200
+#define HEIGHT 800
 
 int main()
 {
-    InitWindow(WIDTH, HEIGHT, "7 Segment Clock");
-    double last_time = GetTime();
+    int width = WIDTH;
+    int height = HEIGHT;
 
-    int i = 0;
+    SetConfigFlags(FLAG_WINDOW_RESIZABLE);
+    InitWindow(width, height, "7 Segment Clock");
     while (!WindowShouldClose())
     {
-        double now = GetTime();
-        if (now - last_time >= 1.0)
-        {
-            i++;
-            last_time = now;
+        if (IsWindowResized()) {
+            width = GetScreenWidth();
+            height = GetScreenHeight();
         }
 
+        Vector2 center = { width / 2, height / 2 };
+        
         BeginDrawing();
         ClearBackground(BLACK);
-        Vector2 center = {WIDTH / 2, HEIGHT / 2};
-        drawDigit(getMinutes(), center, .5);
+        drawClock(getHour(), getMinutes(), getSeconds(), center, 0.5f);
         EndDrawing();
     }
 
