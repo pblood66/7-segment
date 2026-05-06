@@ -36,13 +36,9 @@ void drawDigit(int digit, Vector2 center, float scale)
             center.x + LAYOUT[i].offset.x * scale,
             center.y + LAYOUT[i].offset.y * scale,
         };
-        if (mask & (1 << i))
-        {
-            drawSegment(pos, LAYOUT[i].horizontal, scale, RED);
-        }
-        else
-        {
-            drawSegment(pos, LAYOUT[i].horizontal, scale, off);
-        }
+
+        Color color = (mask & (1 << i)) ? RED : off;
+
+        drawSegment(pos, LAYOUT[i].horizontal, scale, color);
     }
 }
